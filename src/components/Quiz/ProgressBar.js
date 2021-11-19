@@ -28,7 +28,7 @@ export default function ProgressBar() {
                 <Link to="/result">
                     <Button className={styles.next}>
                         <span>Next Question</span>
-                        <span class="material-icons-outlined">
+                        <span className="material-icons-outlined">
                             {" "}
                             arrow_forward{" "}
                         </span>

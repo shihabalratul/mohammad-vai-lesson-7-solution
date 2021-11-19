@@ -21,15 +21,23 @@ function App() {
                     <Layout>
                         <Routes>
                             <Route exact="true" path="/" element={<Home />} />
-                            <PublicRoute
+                            <Route
                                 exact="true"
                                 path="/signup"
-                                element={<Signup />}
+                                element={
+                                    <PrivateRoute>
+                                        <Signup />
+                                    </PrivateRoute>
+                                }
                             />
-                            <PublicRoute
+                            <Route
                                 exact="true"
                                 path="/login"
-                                element={<LoginForm />}
+                                element={
+                                    <PrivateRoute>
+                                        <LoginForm />
+                                    </PrivateRoute>
+                                }
                             />
 
                             {/*                             

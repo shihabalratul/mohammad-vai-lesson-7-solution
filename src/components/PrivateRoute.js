@@ -6,20 +6,15 @@ import {
     Navigate,
     Redirect,
     Routes,
+    Outlet,
 } from "react-router-dom";
 
-export default function PrivateRoute({ element: Element, ...rest }) {
+export default function PrivateRoute({ children }) {
     // alias kore nilam .. element ke ekhon Element hishebeo access kora jabe ..
     const { currentUser } = useAuth(); // currentUser thakar manei hocche state ta logged in
     const navigate = useNavigate();
-
     return currentUser ? (
-        <Routes>
-            <Route {...rest}>{(props) => <Element {...props} />}</Route>
-            <Route>
-                <Element></Element>
-            </Route>
-        </Routes>
+        children
     ) : (
         // <Element></Element>
         // render props pattern er moto..Child hishebe Component / Element ta dia dite pari
